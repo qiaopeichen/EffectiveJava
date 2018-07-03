@@ -43,3 +43,6 @@ public static void main(String[] args) {
 	}
 	System.out.println(sum);
 }
+
+// 5.当你应该重用现有对象的时候，请不要创建新的对象。
+// 39.当你应该创建新对象的时候，请不要重用现有的对象。
