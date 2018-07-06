@@ -68,4 +68,16 @@ m.put(new PhoneNumber(707, 867, 5309), "Jenny");
 	4.写完了hashCode方法之后，问问自己“相等的实例是否都具有相等的散列码”。
 */
 
+// 现在我们要把上述的解决办法用到PhoneNumber中。它有三个关键域，都是short类型：
+@Override 
+public int hashCode() {
+	int result = 17;
+	result = 31 * result + areaCode;
+	result = 31 * result + prefix;
+	result = 31 * result + lineNumber;
+	return result;
+}
+
+
+
 
