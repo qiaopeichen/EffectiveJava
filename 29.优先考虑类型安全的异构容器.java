@@ -36,3 +36,23 @@ public class Favorites {
 public class Class<T> {
 	T cast(Object obj);
 }
+
+// Achieving runtime type safety with a dynamic cast
+public <T> void putFavorite(Class<T> type, T instance) {
+	favorites.put(type, type.cast(instance));
+}
+
+// Use of asSubclass to safely cast to a bounded type token
+static Annotation getAnnotation(AnnotatedElement element,
+								String annotationTypeName) {
+	try {
+		annotationType = Class.forName(annotationTypeName);
+	} catch (Exception ex) {
+		throw new IllegalArgumentException(ex);
+	}
+	return element.getAnnotation(
+		annotationType.asSubclass(Annotation.class));
+}
+
+
+
